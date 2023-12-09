@@ -1,0 +1,72 @@
+---
+title: "Final Project"
+author: "Jesigga"
+date: "2023-12-07"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+### Load Packages
+library(ggplot2)
+library(esquisse)
+library(dplyr)
+library(tidyverse)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r Data Set}
+taylor_album_songs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_album_songs.csv')
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r Tidy Data for Research Questions}
+certan_rows = subset(taylor_album_songs, select = c(album_name, album_release, artist, 
+featuring, danceability, energy))
+Taylor_clean_data <- certan_rows %>%
+  filter(!is.na(album_name)) %>%
+  filter(!is.na(artist)) %>%
+  arrange(desc(album_release))
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r Danceability Vs Energy}
+ggplot(Taylor_clean_data) +
+  aes(x = danceability, y = energy) +
+  geom_jitter(size = 1.5) +
+  labs(
+    x = "Energy",
+    y = "Danceability",
+    title = "Danceability Vs Energy"
+  ) +
+  theme_linedraw()  
+```
+
+
+
+
+
+```{r Album Release vs Featured Artist}
+Taylor_clean_data %>%
+  filter(!is.na(featuring)) %>%
+  ggplot() +
+  aes(x = album_release, y = featuring) +
+  geom_tile() +
+  labs(
+    x = "Album Release",
+    y = "Featured Artist",
+    title = "Album Release vs Featured Artist"
+  ) +
+  theme_linedraw()
+```
+
