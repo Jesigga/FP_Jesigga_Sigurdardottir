@@ -58,7 +58,7 @@ I was curious as to how someone can make songs that are fun and energetic and ea
 ggplot(Taylor_clean_data) +
   aes(x = danceability, y = energy) +
   geom_jitter(shape = "asterisk",
-    size = 1.5,
+    size = 1.0,
     colour = "#228B40")+
    expand_limits(x = 0, y = 0) +
   labs(
