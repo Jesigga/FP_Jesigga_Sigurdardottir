@@ -33,9 +33,9 @@ Use the following checklist to ensure that you have completed all of the tasks.
   - [x] Create multiple data visualizations that assist both the team and readers in understanding the data.
     - Data visualizations should show a variety of your skills and geometries.
     - __Optional__: If your research question/data make sense to do so, try creating a map.
-  - [ ] Create at least one visual table (not a display of raw data) that assists both the team and readers in understanding the data.
+  - [x] Create at least one visual table (not a display of raw data) that assists both the team and readers in understanding the data.
   - [x] Have narrative text explaining every data visualization and table as well as setting a framework.
-  - [ ] All code should be written according to a Style Guide of your choice. List this Style Guide as a code comment in your first code chunk.
+  - [x] All code should be written according to a Style Guide of your choice. List this Style Guide as a code comment in your first code chunk.
   - [X] __Optional:__ For those who want to challenge themselves further, feel free to include a section on using other statistical methods such as hypothesis testing, regression, ANOVA, or machine learning--see Chapter 18 of the Data Computing eBook.
 - [ x Use GitHub to share changes and edits; there should be multiple commits to your repo and at least 2 by each team member. Ensure that your instructor has access to your repo
 - [X] __Optional:__ Your group may also wish to use `trackdown`
