@@ -14,20 +14,25 @@ library(dplyr)
 library(tidyverse)
 ```
 
-## R Markdown
+# Final Project
+## Taylor Swift
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+A R script that analyzes the dataset of Taylor Swift songs pulled from Spotify's API
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Dataset: <https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_all_songs.csv>.
+
 
 ```{r Data Set}
 taylor_album_songs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_album_songs.csv')
 
 ```
 
-## Including Plots
+### Introduction 
 
-You can also embed plots, for example:
+Taylor Swift is that rarest of pop phenomena: a superstar who managed to completely cross over from country to the mainstream, becoming an enduring pop culture icon and conquering the world in the process. Swift shed her country roots like they were a second skin, revealing that she was perhaps the savviest populist singer/songwriter of her generation, one who could harness the zeitgeist, make it personal and, just as impressively, perform the reverse.
+
+
+In this project, I will analyze an imported dataset from Spotfiy's API on Swift's discography. From the raw data, we have decided to extract information regarding the ratings of the artist's songs whether it is on danceability, energy, and featured artists.
 
 ```{r Tidy Data for Research Questions}
 certan_rows = subset(taylor_album_songs, select = c(album_name, album_release, artist, 
@@ -39,7 +44,11 @@ Taylor_clean_data <- certan_rows %>%
 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Our chosen topic holds significant importance in our current times and society, as Swift is a major force within the music industry and other sectors as well. It also holds benefits for those wanting to explore in-depth knowledge of how music streaming services, such as Spotify, input billions of songs into Hadoop-based data lakes and run multiple complex analyses of specific elements that contribute to each production.
+
+Delving into the code, I have calculated how and why Swift's discography has become so popular with the general public by analyzing Spotify's raw dataset on danceability and energetic-ness. I have created visual graphs to support my hypotheses and to highlight the trends and statistics of her musical catalog.
+
+
 ```{r Danceability Vs Energy}
 ggplot(Taylor_clean_data) +
   aes(x = danceability, y = energy) +
@@ -52,8 +61,7 @@ ggplot(Taylor_clean_data) +
   theme_linedraw()  
 ```
 
-
-
+I wanted to find the correlation between danceability, and energy represented by a graph. From this graph, I was able to see that energy and danceability are almost linearly related.
 
 
 ```{r Album Release vs Featured Artist}
@@ -70,3 +78,4 @@ Taylor_clean_data %>%
   theme_linedraw()
 ```
 
+I was curious to see if There was any trend in people being featured in her albums as her career progressed and as you can see there are more featured artists as tame moves forward.
