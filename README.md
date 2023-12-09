@@ -20,7 +20,7 @@ Use the following checklist to ensure that you have completed all of the tasks.
 - [x] Locate appropriate data sources for your project.
   - [x] Your main data source may __not__ be one that we used in class nor be found in any R package.
   - [x] Supplementary data sources may come from anywhere.
-- [ ] Read in your data and perform any necessary data wrangling and cleaning.
+- [x] Read in your data and perform any necessary data wrangling and cleaning.
 - [ ] Conduct Exploratory Data Analysis.
 - [ ] Prepare a reproducible report
   - [ ] Use a RMD file; output type is your choice.
@@ -28,23 +28,23 @@ Use the following checklist to ensure that you have completed all of the tasks.
   - [ ] Code should be collapsed/hidden for HTML, and R Notebooks or in a Code Appendix at the end for a PDF.
   - [ ] All outputs should be accompanied by narrative text to explain what the reader should be seeing.
   - [ ] State your research questions and explain them.
-  - [ ] Describe your data sources (where they come from, what was their original purpose, who/what comprise the cases in each).
+  - [x] Describe your data sources (where they come from, what was their original purpose, who/what comprise the cases in each).
   - [ ] Describe what attributes you'll focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets).
-  - [ ] Create multiple data visualizations that assist both the team and readers in understanding the data.
+  - [x] Create multiple data visualizations that assist both the team and readers in understanding the data.
     - Data visualizations should show a variety of your skills and geometries.
     - __Optional__: If your research question/data make sense to do so, try creating a map.
   - [ ] Create at least one visual table (not a display of raw data) that assists both the team and readers in understanding the data.
-  - [ ] Have narrative text explaining every data visualization and table as well as setting a framework.
+  - [x] Have narrative text explaining every data visualization and table as well as setting a framework.
   - [ ] All code should be written according to a Style Guide of your choice. List this Style Guide as a code comment in your first code chunk.
-  - [ ] __Optional:__ For those who want to challenge themselves further, feel free to include a section on using other statistical methods such as hypothesis testing, regression, ANOVA, or machine learning--see Chapter 18 of the Data Computing eBook.
+  - [X] __Optional:__ For those who want to challenge themselves further, feel free to include a section on using other statistical methods such as hypothesis testing, regression, ANOVA, or machine learning--see Chapter 18 of the Data Computing eBook.
 - [ ] Use GitHub to share changes and edits; there should be multiple commits to your repo and at least 2 by each team member. Ensure that your instructor has access to your repo
-- [ ] __Optional:__ Your group may also wish to use `trackdown`
+- [X] __Optional:__ Your group may also wish to use `trackdown`
 - [ ] You'll submit an output file of your choice, the RMD, and a link to your GitHub Repo to the appropriate submission portal in Canvas.
     - __Due Date for Xinyue's Class: Monday, Dec. 11th, 2023 by 5:00pm ET__
-- [ ] During the two weeks of classes following Thanksgiving Break (Nov. 29, Dec. 1, Dec. 6, and Dec. 8), your group will need to share a short presentation of what you've investigated and learned so far. __The schedule can be found on the detail page in Canvas.__
+- [x] During the two weeks of classes following Thanksgiving Break (Nov. 29, Dec. 1, Dec. 6, and Dec. 8), your group will need to share a short presentation of what you've investigated and learned so far. __The schedule can be found on the detail page in Canvas.__
 - [ ] Each member of the team needs to complete Peer/Self Evaluations using the included Evaluation template and upload the knitted PDF to the appropriate submission portal in Canvas.
     - __Due Date: Thursday, Dec. 14th, 2023 by 11:59pm ET__
-- [ ] Update this README file to check off all elements you have completed by placing an x inside the square brackets: [x]
+- [x] Update this README file to check off all elements you have completed by placing an x inside the square brackets: [x]
 
 ## Learning Objectives and Outcomes Assessed
 + Code: Students will develop their ability to create reproducible code that others can understand.
