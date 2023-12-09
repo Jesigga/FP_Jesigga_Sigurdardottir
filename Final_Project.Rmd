@@ -14,45 +14,53 @@ library(dplyr)
 library(tidyverse)
 ```
 
-# Final Project
+# Stat 184 Final Project
 ## Taylor Swift
 
-A R script that analyzes the dataset of Taylor Swift songs pulled from Spotify's API
+\Large A R script that analyzes the dataset of Taylor Swift songs pulled from Spotify's API.
 
 Dataset: <https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_all_songs.csv>.
 
-
-```{r Data Set}
+```{r Data Set, include=FALSE}
 taylor_album_songs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_album_songs.csv')
 
 ```
 
-### Introduction 
+# Introduction 
 
-Taylor Swift is that rarest of pop phenomena: a superstar who managed to completely cross over from country to the mainstream, becoming an enduring pop culture icon and conquering the world in the process. Swift shed her country roots like they were a second skin, revealing that she was perhaps the savviest populist singer/songwriter of her generation, one who could harness the zeitgeist, make it personal and, just as impressively, perform the reverse.
+Taylor Swift is a superstar who managed to completely cross over from country to the mainstream, becoming an enduring pop culture icon and conquering the world in the process. Taylor moved from her country roots, revealing that she was perhaps the savviest singer/songwriter of her generation, one who could make it personal and still fun and enjoyable.
+
+In this project, I will analyze an imported dataset from Spotfiy's API on Swift's discography. From the raw data, I have decided to extract information regarding featured artists and ratings of the artist's songs on danceability and energy.
 
 
-In this project, I will analyze an imported dataset from Spotfiy's API on Swift's discography. From the raw data, we have decided to extract information regarding the ratings of the artist's songs whether it is on danceability, energy, and featured artists.
-
-```{r Tidy Data for Research Questions}
-certan_rows = subset(taylor_album_songs, select = c(album_name, album_release, artist, 
-featuring, danceability, energy))
-Taylor_clean_data <- certan_rows %>%
+```{r Tidy Data for Research Questions, echo=FALSE}
+certan_col = subset(taylor_album_songs, select = c(album_name, album_release, artist, featuring, danceability, energy))
+Taylor_clean_data <- certan_col %>%
   filter(!is.na(album_name)) %>%
   filter(!is.na(artist)) %>%
   arrange(desc(album_release))
 
 ```
 
-Our chosen topic holds significant importance in our current times and society, as Swift is a major force within the music industry and other sectors as well. It also holds benefits for those wanting to explore in-depth knowledge of how music streaming services, such as Spotify, input billions of songs into Hadoop-based data lakes and run multiple complex analyses of specific elements that contribute to each production.
 
-Delving into the code, I have calculated how and why Swift's discography has become so popular with the general public by analyzing Spotify's raw dataset on danceability and energetic-ness. I have created visual graphs to support my hypotheses and to highlight the trends and statistics of her musical catalog.
+This topic holds significant importance in current times and society, as Swift is a major artist within the music industry. This data also holds benefits for those wanting to explore how music streaming services, such as Spotify, input billions of songs and run many complex analyses of songs.
 
 
-```{r Danceability Vs Energy}
+I have tried to calculated how and why Taylor Swift has become so popular with the general public by analyzing Spotify's data set on danceability and energetic-ness. I have created visual graphs to support my hypotheses and to highlight the trends and statistics of her musical catalog.
+
+
+# Trend in Danceability and Energy
+
+I was curious as to how someone can make songs that are fun and energetic and easy to dance to while still connecting with people, and I was curious to see if having songs that are more energetic and easy to dance to would correlate with each other. For example, would a song that is very high in energy be considered a more danceable song. This leads to my first visualization.
+
+
+```{r Danceability Vs Energy, echo=FALSE}
 ggplot(Taylor_clean_data) +
   aes(x = danceability, y = energy) +
-  geom_jitter(size = 1.5) +
+  geom_jitter(shape = "asterisk",
+    size = 1.5,
+    colour = "#228B40")+
+   expand_limits(x = 0, y = 0) +
   labs(
     x = "Energy",
     y = "Danceability",
@@ -61,10 +69,17 @@ ggplot(Taylor_clean_data) +
   theme_linedraw()  
 ```
 
+
 I wanted to find the correlation between danceability, and energy represented by a graph. From this graph, I was able to see that energy and danceability are almost linearly related.
 
+\newpage
+# Trend in Featured Artist over Time 
 
-```{r Album Release vs Featured Artist}
+Another question I found myself pondering was would artists being featured have anything to do with her popularity? for example would she start off having multiple featured artists on her songs and that’s how she gained popularity or did she become famous and then started featuring other artists? This leads me to my next visualization.
+
+
+
+```{r Album Release vs Featured Artist, echo=FALSE}
 Taylor_clean_data %>%
   filter(!is.na(featuring)) %>%
   ggplot() +
@@ -78,4 +93,74 @@ Taylor_clean_data %>%
   theme_linedraw()
 ```
 
-I was curious to see if There was any trend in people being featured in her albums as her career progressed and as you can see there are more featured artists as tame moves forward.
+I was curious to see if There was any trend in people being featured in her albums as her career progressed and as you can see there are more featured artists later in her career.
+
+
+\newpage
+# Final Thoughts
+
+Overall this has been a lot of fun playing with Taylor's song data and I found some interesting information from this. I found it interesting how, although it’s not exactly linear her danceability versus energy graph shows that more energetic songs would be considered more danceable according to Spotify' data, which I thought was really interesting. This is very similar to what I thought, but I wasn’t expecting the data to be so condensed in the higher sections of both danceability and energy. 
+
+
+I  thought it was fun to see how in the very beginning of her albums being released, there weren’t any artists being featured on those albums. She didn’t really start having anyone featured on her albums until about 2018, which is when the featured artists starts, but her first albums were released much earlier in her career when she was originally more of a country singer, which I thought was really fascinating to see. 
+
+
+Overall, I feel like my predictions versus what the data showed was quite similar and can see how she became very popular then featured artists on her albums. You can also see that the more energetic a song is the more danceable it would be according to Spotify.
+
+
+ 
+
+
+
+
+\newpage
+# Code Apendix
+
+```{r eval=FALSE, include=TRUE}
+### Load Packages
+library(ggplot2)
+library(esquisse)
+library(dplyr)
+library(tidyverse)
+
+## Import Data Set For Taylor Songs
+taylor_album_songs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-10-17/taylor_album_songs.csv')
+
+##Clean Data To specific Columbus 
+##Subset of the dataframe to select attributes that will be used.
+certan_col = subset(taylor_album_songs, select = c(album_name, album_release, artist, featuring, danceability, energy))
+Taylor_clean_data <- certan_col %>%
+  filter(!is.na(album_name)) %>%
+  filter(!is.na(artist)) %>%
+  arrange(desc(album_release))
+
+## Data visualization for dancability Vs energy
+ggplot(Taylor_clean_data) +
+  aes(x = danceability, y = energy) +
+  geom_jitter(shape = "asterisk",  # changing shape
+    size = 1.0,
+    colour = "#228B40")+ # changing color
+   expand_limits(x = 0, y = 0) + # starting at zero
+  labs(
+    x = "Energy",
+    y = "Danceability", # labels
+    title = "Danceability Vs Energy"
+  ) +
+  theme_linedraw()   
+
+
+## second data visualization Featured artists over time
+Taylor_clean_data %>%
+  filter(!is.na(featuring)) %>%  # removes N/A songs
+  ggplot() +
+  aes(x = album_release, y = featuring) +
+  geom_tile() +
+  labs(
+    x = "Album Release",
+    y = "Featured Artist", # labels
+    title = "Album Release vs Featured Artist"
+  ) +
+  theme_linedraw()
+
+```
+
