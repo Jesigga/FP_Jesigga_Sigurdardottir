@@ -42,7 +42,7 @@ Use the following checklist to ensure that you have completed all of the tasks.
 - [X] You'll submit an output file of your choice, the RMD, and a link to your GitHub Repo to the appropriate submission portal in Canvas.
     - __Due Date for Xinyue's Class: Monday, Dec. 11th, 2023 by 5:00pm ET__
 - [x] During the two weeks of classes following Thanksgiving Break (Nov. 29, Dec. 1, Dec. 6, and Dec. 8), your group will need to share a short presentation of what you've investigated and learned so far. __The schedule can be found on the detail page in Canvas.__
-- [ ] Each member of the team needs to complete Peer/Self Evaluations using the included Evaluation template and upload the knitted PDF to the appropriate submission portal in Canvas.
+- [x] Each member of the team needs to complete Peer/Self Evaluations using the included Evaluation template and upload the knitted PDF to the appropriate submission portal in Canvas.
     - __Due Date: Thursday, Dec. 14th, 2023 by 11:59pm ET__
 - [x] Update this README file to check off all elements you have completed by placing an x inside the square brackets: [x]
 
